@@ -14,6 +14,6 @@ RUN git clone https://github.com/intel/llvm.git -b sycl
 #RUN git checkout cf1e717a8fd157c2e13baec7056346668f789743
 
 
-COPY ./build.sh /opt
+COPY ./scripts/build.sh /opt
 
 ENTRYPOINT [ "/opt/build.sh" ]

@@ -1,6 +1,6 @@
 # sycl-container
 
-A container for SYCL development
+A container for SYCL development.
 
 ## Initial Step: Build LLVM/SYCL for CUDA
 
@@ -18,6 +18,4 @@ This will download the CUDA image and clone intel/llvm
 docker run --gpus all -v $(realpath .):/mnt llvm
 ```
 
-This will start the build process, which may take half-hour. For Windows you need to have a version of WSL2 with GPU passthrough. 
-
-
+This will start the build process, which may take half-hour. For Windows you need to have a version of WSL2 with GPU passthrough.
