@@ -15,7 +15,7 @@ docker build -f ./llvm-cuda/Dockerfile -t llvm .
 This will download the CUDA image and clone intel/llvm
 
 ```bash
-docker run --gpus all -v $(realpath .):/mnt llvm
+docker run -v $(realpath .):/mnt llvm
 ```
 
-This will start the build process, which may take half-hour. For Windows you need to have a version of WSL2 with GPU passthrough.
+This will start the build process, which may take half-hour.
