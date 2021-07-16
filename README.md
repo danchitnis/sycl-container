@@ -2,20 +2,26 @@
 
 A container for SYCL development.
 
-## Initial Step: Build LLVM/SYCL for CUDA
+## Quick start
 
-You need an working gpu to build the llvm sycl banch for CUDA. Always run the container with `--gpus all` flag.
-
-Before starting the build make sure that the `./builds` is empty, and you have backed-up the previous builds.
+make sure you have docker installed and running on your system. For CUDA see the notes below.
 
 ```bash
-docker build -f ./llvm-cuda/Dockerfile -t llvm .
+docker pull danchitnis/sycl-container:llvm-dev
 ```
 
-This will download the CUDA image and clone intel/llvm
+once the download is complete, then run
 
 ```bash
-docker run -v $(realpath .):/mnt llvm
+docker run -it --gpus all danchitnis/sycl-container:llvm-dev bash
 ```
 
-This will start the build process, which may take half-hour.
+once inside the container, then set your environment variables
+
+```bash
+. /opt/llvm/setvars.sh
+```
+
+This will set the essential variables to compile and run SYCL code. It will run `clang++ --version` and `sycl-ls` as a test.
+
+## Contributions
