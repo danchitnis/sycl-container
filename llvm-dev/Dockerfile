@@ -2,11 +2,9 @@ FROM danchitnis/sycl-container:llvm-cuda
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get -y update 
-RUN apt-get -y upgrade
 
-
-RUN apt-get install -y \
+RUN apt-get update && \
+    apt-get install -y \
     sudo \
     wget \
     curl
@@ -53,4 +51,7 @@ RUN apt autoremove -y && \
 
 
 COPY ./scripts/setvars-llvm.sh /opt/llvm/setvars.sh
+RUN chmod +x /opt/llvm/setvars.sh
+
+#COPY ./test /usr/test
 
