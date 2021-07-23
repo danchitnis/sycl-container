@@ -23,9 +23,8 @@ FROM nvidia/cuda:11.4.0-devel-ubuntu20.04
 
 COPY --from=builder /opt/build/llvm/build/install /opt/llvm
 
-COPY ./scripts/setvars-llvm.sh /opt/llvm/setvars.sh
-
-RUN chmod +x /opt/llvm/setvars.sh
+#COPY ./scripts/setvars-llvm.sh /opt/llvm/setvars.sh
+#RUN chmod +x /opt/llvm/setvars.sh
 
 WORKDIR /opt/llvm
 
