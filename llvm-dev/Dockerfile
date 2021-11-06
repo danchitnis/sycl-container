@@ -21,7 +21,9 @@ RUN wget https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCT
 
 # https://software.intel.com/content/www/us/en/develop/articles/intel-cpu-runtime-for-opencl-applications-with-sycl-support.html
 # https://oneapi-src.github.io/oneapi-ci/
-RUN apt-get -y install intel-oneapi-runtime-opencl intel-oneapi-runtime-tbb
+RUN apt-get -y install intel-oneapi-runtime-opencl intel-oneapi-runtime-tbb \
+    intel-oneapi-runtime-openmp intel-oneapi-runtime-compilers 
+
 
 
 WORKDIR / 
@@ -44,10 +46,10 @@ RUN apt-get update -y && \
 
 
 
-
 # Clean-up
 RUN apt autoremove -y && \
-    rm -rf /var/cache/apt /var/lib/apt/lists
+    rm -rf /var/cache/apt /var/lib/apt/lists && \
+    apt-get -y update
 
 
 COPY ./scripts/setvars-llvm.sh /opt/llvm/setvars.sh
